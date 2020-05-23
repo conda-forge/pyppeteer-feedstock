@@ -1,7 +1,7 @@
 About pyppeteer
 ===============
 
-Home: https://github.com/miyakogi/pyppeteer
+Home: https://pyppeteer.github.io/pyppeteer
 
 Package license: MIT
 
@@ -116,5 +116,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@bollwyvl](https://github.com/bollwyvl/)
 * [@kiwi0fruit](https://github.com/kiwi0fruit/)
 
