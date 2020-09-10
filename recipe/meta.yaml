@@ -1,5 +1,5 @@
 {% set name = "pyppeteer" %}
-{% set version = "0.0.25" %}
+{% set version = "0.2.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,43 +7,50 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 51fe769b722a1718043b74d12c20420f29e0dd9eeea2b66652b7f93a9ad465dd
+  sha256: 153c62666fe1d55b3941d1634733c02cafb47188fcf282987371e863d58f22e9
   patches:
     - conda-forge.patch
 
 build:
   noarch: python
-  number: 1
+  number: 0
   entry_points:
     - pyppeteer-install = pyppeteer.command:install
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
     - python >=3.6
     - pip
+    - poetry >=0.12
   run:
     - python >=3.6
-    - pyee
-    - websockets
-    - appdirs
-    - urllib3
-    - tqdm
+    - pyee >=7.0.1,<8.0.0a0
+    - websockets >=8.1,<9.0.0a0
+    - appdirs >=1.4.3,<2.0.0a0
+    - urllib3 >=1.25.8,<2.0.0a0
+    - tqdm >=4.42.1,<5.0.0a0
     - certifi
 
 test:
+  requires:
+    - pip
   imports:
     - pyppeteer
+  commands:
+    - python -m pip check
 
 about:
-  home: https://github.com/miyakogi/pyppeteer
+  home: https://pyppeteer.github.io/pyppeteer
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: "Headless chrome/chromium automation library (unofficial port of puppeteer)"
-  doc_url: https://miyakogi.github.io/pyppeteer
-  dev_url: https://github.com/miyakogi/pyppeteer
+  summary: Headless chrome/chromium automation library (unofficial port of puppeteer)
+  doc_url: https://pyppeteer.github.io/pyppeteer
+  dev_url: https://github.com/pyppeteer/pyppeteer
 
 extra:
   recipe-maintainers:
     - kiwi0fruit
+    - bollwyvl
+    - SylvainCorlay
