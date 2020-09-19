@@ -1,15 +1,15 @@
-From 351dd84a8fdf2eef59d615ccee1181697f479097 Mon Sep 17 00:00:00 2001
+From af93610a8fc9c84dde1b72263c8548e3764edc31 Mon Sep 17 00:00:00 2001
 From: Sylvain Corlay <sylvain.corlay@gmail.com>
-Date: Thu, 10 Sep 2020 15:36:00 +0200
+Date: Sat, 19 Sep 2020 13:05:16 +0200
 Subject: [PATCH] conda-forge
 
 ---
- pyppeteer/chromium_downloader.py | 11 ++++-------
+ pyppeteer/chromium_downloader.py | 13 +++++--------
  pyproject.toml                   |  1 +
- 2 files changed, 5 insertions(+), 7 deletions(-)
+ 2 files changed, 6 insertions(+), 8 deletions(-)
 
 diff --git a/pyppeteer/chromium_downloader.py b/pyppeteer/chromium_downloader.py
-index 69bf896..ca17fb5 100644
+index 69bf896..2e30942 100644
 --- a/pyppeteer/chromium_downloader.py
 +++ b/pyppeteer/chromium_downloader.py
 @@ -72,17 +72,14 @@ def get_url() -> str:
@@ -19,12 +19,13 @@ index 69bf896..ca17fb5 100644
 -    logger.warning('start chromium download.\n'
 +    logger.warning('start secure https chromium download.\n'
                     'Download may take a few minutes.')
- 
+-
 -    # disable warnings so that we don't need a cert.
 -    # see https://urllib3.readthedocs.io/en/latest/advanced-usage.html for more
 -    urllib3.disable_warnings()
 -
 -    with urllib3.PoolManager() as http:
++    import certifi
 +    with urllib3.PoolManager(cert_reqs='CERT_REQUIRED',
 +                             ca_certs=certifi.where()) as https:
          # Get data from url.
@@ -47,5 +48,5 @@ index ac4341b..7235e8c 100644
  [tool.poetry.dev-dependencies]
  tox = "^3.14.3"
 -- 
-2.28.0
+2.23.0
 
