@@ -5,11 +5,13 @@ Home: https://pyppeteer.github.io/pyppeteer
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pyppeteer-feedstock/blob/master/LICENSE.txt)
 
 Summary: Headless chrome/chromium automation library (unofficial port of puppeteer)
 
+Development: https://github.com/pyppeteer/pyppeteer
 
+Documentation: https://pyppeteer.github.io/pyppeteer
 
 Current build status
 ====================
