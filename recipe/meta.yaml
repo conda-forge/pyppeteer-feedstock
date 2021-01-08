@@ -1,5 +1,5 @@
 {% set name = "pyppeteer" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 153c62666fe1d55b3941d1634733c02cafb47188fcf282987371e863d58f22e9
+  sha256: c2974be1afa13b17f7ecd120d265d8b8cd324d536a231c3953ca872b68aba4af
   patches:
     - conda-forge.patch
 
 build:
   noarch: python
-  number: 1
+  number: 0
   entry_points:
     - pyppeteer-install = pyppeteer.command:install
   script: {{ PYTHON }} -m pip install . --no-deps -vv
