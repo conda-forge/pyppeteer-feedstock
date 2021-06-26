@@ -1,24 +1,20 @@
-From 7258242d6c8017f35e5d48c2f346eba9acb1da37 Mon Sep 17 00:00:00 2001
+From 3fd77236235591a981db662ea52fbfa94c1ba831 Mon Sep 17 00:00:00 2001
 From: Sylvain Corlay <sylvain.corlay@gmail.com>
 Date: Sat, 19 Sep 2020 13:05:16 +0200
 Subject: [PATCH] conda-forge
 
 ---
- pyppeteer/chromium_downloader.py | 13 +++++--------
- 1 file changed, 5 insertions(+), 8 deletions(-)
+ pyppeteer-0.2.5/pyppeteer/chromium_downloader.py | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
-diff --git a/pyppeteer/chromium_downloader.py b/pyppeteer/chromium_downloader.py
-index 69bf896..2e30942 100644
---- a/pyppeteer/chromium_downloader.py
-+++ b/pyppeteer/chromium_downloader.py
-@@ -72,17 +72,14 @@ def get_url() -> str:
- 
- def download_zip(url: str) -> BytesIO:
-     """Download data from url."""
--    logger.warning('start chromium download.\n'
-+    logger.warning('start secure https chromium download.\n'
+diff --git a/pyppeteer-0.2.5/pyppeteer/chromium_downloader.py b/pyppeteer-0.2.5/pyppeteer/chromium_downloader.py
+index 41943cd..7f58935 100644
+--- a/pyppeteer-0.2.5/pyppeteer/chromium_downloader.py
++++ b/pyppeteer-0.2.5/pyppeteer/chromium_downloader.py
+@@ -75,14 +75,12 @@ def download_zip(url: str) -> BytesIO:
+     logger.warning('start chromium download.\n'
                     'Download may take a few minutes.')
--
+ 
 -    # disable warnings so that we don't need a cert.
 -    # see https://urllib3.readthedocs.io/en/latest/advanced-usage.html for more
 -    urllib3.disable_warnings()
@@ -35,5 +31,5 @@ index 69bf896..2e30942 100644
          try:
              total_length = int(data.headers['content-length'])
 -- 
-2.32.0
+2.28.0
 
