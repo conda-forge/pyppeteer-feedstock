@@ -1,12 +1,11 @@
-From af93610a8fc9c84dde1b72263c8548e3764edc31 Mon Sep 17 00:00:00 2001
+From 7258242d6c8017f35e5d48c2f346eba9acb1da37 Mon Sep 17 00:00:00 2001
 From: Sylvain Corlay <sylvain.corlay@gmail.com>
 Date: Sat, 19 Sep 2020 13:05:16 +0200
 Subject: [PATCH] conda-forge
 
 ---
  pyppeteer/chromium_downloader.py | 13 +++++--------
- pyproject.toml                   |  1 +
- 2 files changed, 6 insertions(+), 8 deletions(-)
+ 1 file changed, 5 insertions(+), 8 deletions(-)
 
 diff --git a/pyppeteer/chromium_downloader.py b/pyppeteer/chromium_downloader.py
 index 69bf896..2e30942 100644
@@ -35,18 +34,6 @@ index 69bf896..2e30942 100644
  
          try:
              total_length = int(data.headers['content-length'])
-diff --git a/pyproject.toml b/pyproject.toml
-index ac4341b..7235e8c 100644
---- a/pyproject.toml
-+++ b/pyproject.toml
-@@ -51,6 +51,7 @@ appdirs = "^1.4.3"
- tqdm = "^4.42.1"
- pyee = "^7.0.1"
- urllib3 = "^1.25.8"
-+certifi = "^2020.6.20"
- 
- [tool.poetry.dev-dependencies]
- tox = "^3.14.3"
 -- 
-2.23.0
+2.32.0
 
