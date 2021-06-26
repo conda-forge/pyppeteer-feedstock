@@ -1,7 +1,7 @@
 About pyppeteer
 ===============
 
-Home: https://pyppeteer.github.io/pyppeteer
+Home: https://github.com/pyppeteer/pyppeteer
 
 Package license: MIT
 
