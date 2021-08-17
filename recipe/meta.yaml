@@ -1,5 +1,5 @@
 {% set name = "pyppeteer" %}
-{% set version = "0.2.5" %}
+{% set version = "0.2.6" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyppeteer-{{ version }}.tar.gz
-  sha256: c2974be1afa13b17f7ecd120d265d8b8cd324d536a231c3953ca872b68aba4af
+  sha256: 4621bb890e54f43dce84f5139ea4d484a62886be1903c2fcb393af607943538f
   patches:
     - conda-forge.patch
     - 0001-Relax-version-constraint-on-importlib-metadata.patch
@@ -32,7 +32,7 @@ requirements:
     - python >=3.6
     - tqdm >=4.42.1,<5.0.0
     - urllib3 >=1.25.8,<2.0.0
-    - websockets >=8.1,<9.0
+    - websockets >=9.1,<10.0
 
 test:
   requires:
