@@ -1,0 +1,13 @@
+71,78c71,73
+<     # Uncomment the statement below to disable HTTPS warnings and allow
+<     # download without certificate verification. This is *strongly* as it
+<     # opens the code to man-in-the-middle (and other) vulnerabilities; see
+<     # https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+<     # for more.
+<     # urllib3.disable_warnings()
+< 
+<     with urllib3.PoolManager() as http:
+---
+>     import certifi
+>     
+>     with urllib3.PoolManager(cert_reqs='CERT_REQUIRED', ca_certs=certifi.where()) as http:

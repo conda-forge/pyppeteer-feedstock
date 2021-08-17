@@ -10,9 +10,7 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pyppeteer-{{ version }}.tar.gz
   sha256: 4621bb890e54f43dce84f5139ea4d484a62886be1903c2fcb393af607943538f
   patches:
-    # all patches appear to be upstreamed at this point
-    # - conda-forge.patch
-    # - 0001-Relax-version-constraint-on-importlib-metadata.patch
+    - 0001-use-certifi.patch
 
 build:
   noarch: python
