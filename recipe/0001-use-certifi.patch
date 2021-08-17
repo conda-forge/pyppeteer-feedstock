@@ -1,6 +1,8 @@
---- pyppeteer/chromium_downloader.py	2021-08-17 12:07:22.089216008 -0400
-+++ pyppeteer/chromium_downloader.py	2021-08-17 12:09:44.821605860 -0400
-@@ -68,14 +68,9 @@
+diff --git a/pyppeteer/chromium_downloader.py b/pyppeteer/chromium_downloader.py
+index 8e9e707..4f6bd12 100644
+--- a/pyppeteer/chromium_downloader.py
++++ b/pyppeteer/chromium_downloader.py
+@@ -68,14 +68,9 @@ def download_zip(url: str) -> BytesIO:
      """Download data from url."""
      logger.warning('Starting Chromium download. ' 'Download may take a few minutes.')
  
@@ -13,7 +15,7 @@
 -
 -    with urllib3.PoolManager() as http:
 +    import certifi
-+    
++
 +    with urllib3.PoolManager(cert_reqs='CERT_REQUIRED', ca_certs=certifi.where()) as http:
          # Get data from url.
          # set preload_content=False means using stream later.
