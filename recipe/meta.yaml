@@ -40,7 +40,7 @@ test:
     - pyppeteer
   commands:
     - python -m pip check
-    - export PYPPETEER_HOME=$(pwd)/tmp # [unix]
+    - export PYPPETEER_HOME=$(pwd)/tmp  # [unix]
     - set PYPPETEER_HOME=%CD%\tmp  # [win]
     - pyppeteer-install
 
