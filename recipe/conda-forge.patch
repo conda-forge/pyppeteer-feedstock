@@ -1,23 +1,26 @@
-From 3fd77236235591a981db662ea52fbfa94c1ba831 Mon Sep 17 00:00:00 2001
-From: Sylvain Corlay <sylvain.corlay@gmail.com>
-Date: Sat, 19 Sep 2020 13:05:16 +0200
+From 01a2522cc965e79d30c4c75f9e1f7ca0da020433 Mon Sep 17 00:00:00 2001
+From: AJ Schmidt <aschmidt@nvidia.com>
+Date: Tue, 17 Aug 2021 10:43:52 -0400
 Subject: [PATCH] conda-forge
 
 ---
- pyppeteer-0.2.5/pyppeteer/chromium_downloader.py | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+ pyppeteer-0.2.6/chromium_downloader.py | 13 ++++---------
+ 1 file changed, 4 insertions(+), 9 deletions(-)
 
-diff --git a/pyppeteer-0.2.5/pyppeteer/chromium_downloader.py b/pyppeteer-0.2.5/pyppeteer/chromium_downloader.py
-index 41943cd..7f58935 100644
---- a/pyppeteer-0.2.5/pyppeteer/chromium_downloader.py
-+++ b/pyppeteer-0.2.5/pyppeteer/chromium_downloader.py
-@@ -75,14 +75,12 @@ def download_zip(url: str) -> BytesIO:
-     logger.warning('start chromium download.\n'
-                    'Download may take a few minutes.')
- 
--    # disable warnings so that we don't need a cert.
--    # see https://urllib3.readthedocs.io/en/latest/advanced-usage.html for more
--    urllib3.disable_warnings()
+diff --git a/pyppeteer-0.2.6/chromium_downloader.py b/pyppeteer-0.2.6/chromium_downloader.py
+index f329c65..8b0af12 100644
+--- a/pyppeteer-0.2.6/chromium_downloader.py
++++ b/pyppeteer-0.2.6/chromium_downloader.py
+@@ -68,17 +68,12 @@ def download_zip(url: str) -> BytesIO:
+     """Download data from url."""
+     logger.warning('Starting Chromium download. ' 'Download may take a few minutes.')
+
+-    # Uncomment the statement below to disable HTTPS warnings and allow
+-    # download without certificate verification. This is *strongly* as it
+-    # opens the code to man-in-the-middle (and other) vulnerabilities; see
+-    # https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+-    # for more.
+-    # urllib3.disable_warnings()
 -
 -    with urllib3.PoolManager() as http:
 +    import certifi
@@ -25,11 +28,11 @@ index 41943cd..7f58935 100644
 +                             ca_certs=certifi.where()) as https:
          # Get data from url.
          # set preload_content=False means using stream later.
--        data = http.request('GET', url, preload_content=False)
-+        data = https.request('GET', url, preload_content=False)
- 
-         try:
-             total_length = int(data.headers['content-length'])
--- 
-2.28.0
+-        r = http.request('GET', url, preload_content=False)
++        r = https.request('GET', url, preload_content=False)
+         if r.status >= 400:
+             raise OSError(f'Chromium downloadable not found at {url}: ' f'Received {r.data.decode()}.\n')
+
+--
+2.31.1
 
