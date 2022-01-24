@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pyppeteer/pyppeteer-{{ version }}.tar.gz
-  sha256: 4621bb890e54f43dce84f5139ea4d484a62886be1903c2fcb393af607943538f
+  sha256: ddb0d15cb644720160d49abb1ad0d97e87a55581febf1b7531be9e983aad7742
 
 build:
   noarch: python
