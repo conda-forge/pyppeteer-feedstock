@@ -5,19 +5,19 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pyppeteer/pyppeteer-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/pyppeteer/pyppeteer-{{ version }}.tar.gz
   sha256: ddb0d15cb644720160d49abb1ad0d97e87a55581febf1b7531be9e983aad7742
 
 build:
   noarch: python
-  number: 0
+  number: 1
   entry_points:
     - pyppeteer-install = pyppeteer.command:install
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
     - poetry-core
   run:
@@ -25,7 +25,7 @@ requirements:
     - certifi >=2021
     - importlib-metadata >=1.4
     - pyee >=8.1.0,<9.0.0
-    - python >=3.7
+    - python >={{ python_min }}
     - tqdm >=4.42.1,<5.0.0
     - urllib3 >=1.25.8,<2.0.0
     - websockets >=10.0,<11.0
@@ -33,6 +33,7 @@ requirements:
 test:
   requires:
     - pip
+    - python {{ python_min }}
   imports:
     - pyppeteer
   commands:
